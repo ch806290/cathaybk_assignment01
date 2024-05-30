@@ -1,6 +1,6 @@
 '''
 question : please display a pymarid with n input
-1. boundary: 1~10 (max)
+1. boundary: 1~10 (self-defined)
 2. catch exception
 3. implement:
     a. create 2 loop, 1 for row, the other for column
@@ -37,7 +37,7 @@ class InputOutOfRangeException(Exception):
     pass
 
 class solution:
-    def pymarid_display(self, n:int):
+    def hollow_triangle(self, n:int):
         
         for i in reversed(range(1,n+1)):
             str1 = ' ' * (i-1)
@@ -46,11 +46,16 @@ class solution:
     
 
 def get_input_value():
-    n = int(input('Please input a value for pymarid which you would like to display: '))
-    if n < 1 or n > 100:
-        raise InputOutOfRangeException('It is not a valid input, please try again!!!')
+    num = input('請輸入一個1到10之間的整數: ')
+    #目前自己定義邊界為可以輸入1~10, 如果要修改邊界可以自由調整
+    try:
+        n = int(num)
+        if n < 1 or n > 10:
+            raise InputOutOfRangeException('輸入的數字超出範圍!')
+    except ValueError:
+        raise InputOutOfRangeException('輸入的不是一個有效的整數!')
     s = solution()
-    s.pymarid_display(n)
+    s.hollow_triangle(n)
 
 
 if __name__ == "__main__":

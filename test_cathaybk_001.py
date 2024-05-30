@@ -1,27 +1,20 @@
 # This test case is for cathaybk_001
 import pytest
-import cathaybk_001
+from cathaybk_001 import get_input_value,InputOutOfRangeException
 
 
-class TestPymarid:
-    @pytest.mark.RAT
-    def test_pymarid_001(self):
-        index = 1 + 1
-        assert index == 2
+class TesthTriangle:
 
+    @pytest.mark.FET
+    @pytest.mark.parametrize("user_input, expected_exception", [
+    ("abc", InputOutOfRangeException("輸入的不是一個有效的整數!")),
+    ("11", InputOutOfRangeException("輸入的數字超出範圍!")),
+    ("0", InputOutOfRangeException("輸入的數字超出範圍!")),
+    ])
+    def test_invalid_Triangle_001(self,user_input,expected_exception,monkeypatch: pytest.MonkeyPatch):
+        user_inputs = iter([user_input])
+        monkeypatch.setattr("builtins.input", lambda _: next(user_inputs))
+        with pytest.raises(InputOutOfRangeException) as exec_info:
+            get_input_value()
 
-    def test_pymarid_002(self):
-        index = 1 + 2
-        assert index == 3
-
-
-    def test_pymarid_003(self):
-        index = 1 + 4
-        assert index == 5
-
-
-    def test_invalid_pymarid_001(self,monkeypatch: pytest.MonkeyPatch):
-        user_input = iter(["110"])
-        monkeypatch.setattr("builtins.input", lambda _: next(user_input))
-        with pytest.raises(cathaybk_001.InputOutOfRangeException):
-            cathaybk_001.get_input_value()
+        assert str(exec_info.value) == str(expected_exception)
