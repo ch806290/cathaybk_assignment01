@@ -1,20 +1,39 @@
 # Hollow Triangle Pattern
 
-這是一個簡單的Python程式,用於根據輸入的數字繪製一個空心正三角形圖案。該程式是為Cathay Bank的一個面試問題而設計的。
+這是一個Python程式,用於根據輸入的數字繪製一個空心正三角形圖案。是Cathay Bank的第一題 programming question。
 
 ## 問題描述
 
 設計一個函數,接受一個數字作為輸入,並以 `*` 字符輸出對應邊長的空心正三角形。
 
-例如,輸入為 `3` 時,輸出應為:
+例如,底下:
+
+input(1)
+*
+
+input(2)
+ *
+* *
+
+input(3)
+  *
+ * *
+* * *
+
+input(4)
+   *
+  * * 
+ * * *
+* * * *
 
 ## 解決方案
+- 底下針對問題，思考脈絡如下
 
-### 邊界條件
+### 相關考慮條件1: 定義邊界條件（若要不設限邊界，則可以修改限制變數）
 
 - 輸入數字必須在 1 到 10 之間(包括 1 和 10)。
 
-### 異常處理
+### 相關考慮條件2: 異常處理
 
 - 如果輸入的不是一個有效的整數,程式會拋出 `ValueError` 異常。
 - 如果輸入的數字超出範圍(小於 1 或大於 10),程式會拋出 `InputOutOfRangeException` 自定義異常。
@@ -31,13 +50,15 @@
 ### 執行環境
 
 - Python 版本: 3.9.6
-- 需要安裝的套件: `pytest`(用於單元測試)
+- 需要安裝的套件: `pytest`(用於單元測試) （教學：https://docs.pytest.org/en/latest/getting-started.html）
 
 ### 使用方式
 
-1. 克隆存儲庫: git clone https://github.com/your-username/hollow-triangle.git
-2. 導航到專案目錄:cd hollow-triangle
-3. 執行程式: python hollow_triangle.py
-4. 執行單元測試:pytest test_hollow_triangle.py
+1. clone git repo: git clone https://github.com/ch806290/cathaybk_assignment01.git
+2. 到專案目錄: cd cathaybk_assignment01
+3. 執行程式: python3 cathaybk_001.py
 
-該程式的目的是展示Python程式設計和單元測試的基本能力。歡迎查看源代碼並提出任何建議或改進意見。
+### pytest 單元測試
+
+1. 到專案目錄: cd cathaybk_assignment01
+2. 執行單元測試:python3 -m pytest test_cathaybk_001.py
