@@ -1,5 +1,4 @@
 '''
-test!
 question : please display a pymarid with n input
 1. boundary: 1~10 (max)
 2. catch exception
